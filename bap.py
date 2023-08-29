@@ -16,8 +16,12 @@ for perieod_name in meal_name:
    print(url)
    html=urlopen(url)
    soup = BeautifulSoup(html, "html.parser")
-   bap=soup.select(f'.ulType_food li dd')
-   print(bap)
+   bap=soup.select(f'.ulType_food li:nth-child(2) dl dd')
+
+   for a in bap:
+      x= a.text.strip().replace(" ","\n")
+      print(x)
+
 
 exit()
 url=f'https://jeju-s.jje.hs.kr/jeju-s/food/2023/08/29/breakfast'
@@ -26,3 +30,4 @@ html=urlopen(url)
 soup=BeautifulSoup(html,"html.parser")
 bap=soup.select(f'.ulType_food li dd')
 print(bap)
+
