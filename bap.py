@@ -16,7 +16,7 @@ for perieod_name in meal_name:
    print(url)
    html=urlopen(url)
    soup = BeautifulSoup(html, "html.parser")
-   date=soup.select(f'.food_pop h2')
+   date=soup.select(f'.food_pop h2')[0].text
    print(date)
    bap=soup.select(f'.ulType_food li:nth-child(2) dl dd')
    for a in bap:
